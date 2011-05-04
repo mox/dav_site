@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @expertise.name %>
+</p>
+<% if @expertise.image? %>
+  <%= image_tag @expertise.image.url(:large) %>
+  <br />
+<% end %>
+<p>
+  <b>Content:</b>
+  <%= @expertise.content %>
+</p>
+
+<h2>Комментарии:</h2>
+  <% @expertise.comments.each do |comment| %>
+	  <p> <b>Имя:</b> <%= comment.commenter %> </p>
+	  <p> <b>Комментарий:</b> <%= comment.body %> </p> 
+  <% end %>
+
+<br />
+<br />
+<br />
+<h2>Добавить коммментарий</h2> 
+<%= form_for([@expertise, @expertise.comments.build]) do |f| %>
+ <div class="field"> 
+ 	<%= f.label :commenter %><br /> 
+ 	<%= f.text_field :commenter %> 
+ 	</div>
+ 	 <div class="field"> 
+ 	 	<%= f.label :body %><br />
+ 		<%= f.text_area :body %>
+ 	 </div> 
+ 		 <div class="actions"> 
+ 		 	<%= f.submit %> </div> 
+ <% end %>
+
+<%= link_to 'Edit', edit_expertise_path(@expertise) %> |
+<%= link_to 'Back', expertises_path %>

@@ -1,0 +1,13 @@
+<div class="gallery">
+<div id="exmple_1" class="imageflow">
+
+<% @portfolios.each do |portfolio| %>
+
+    <%= image_tag portfolio.image.url(:medium), :longdesc => portfolio.image.url, :alt => portfolio.name %>
+
+<% end %>
+</div>
+
+<br />
+
+<%= link_to 'New Portfolio', new_portfolio_path %>

@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @portfolio.name %>
+</p>
+
+<% if @portfolio.image? %>
+  <%= image_tag @portfolio.image.url(:medium) %>
+  <br />
+  <%= link_to @portfolio.image.url, @portfolio.image.url %>
+<% end %>
+
+
+<%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
+<%= link_to 'Back', portfolios_path %>
