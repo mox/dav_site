@@ -1758,3 +1758,15 @@ Started GET "/expertises/1" for 127.0.0.1 at 2011-05-04 17:42:26 +0600
   [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".expertise_id = 1)[0m
 Rendered expertises/show.html.erb within layouts/application (125.0ms)
 Completed 200 OK in 406ms (Views: 359.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/expertises/1" for 127.0.0.1 at 2011-05-05 14:51:02 +0600
+  Processing by ExpertisesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mExpertise Load (0.0ms)[0m  [1mSELECT "expertises".* FROM "expertises" WHERE "expertises"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".expertise_id = 1)
+Rendered expertises/show.html.erb within layouts/application (125.0ms)
+Completed 200 OK in 484ms (Views: 437.5ms | ActiveRecord: 0.0ms)
